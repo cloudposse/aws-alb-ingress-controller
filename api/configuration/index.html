@@ -1,0 +1,679 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.6">
+    
+    
+      
+        <title>Configuration - AWS ALB Ingress Controller</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="teal" data-md-color-accent="green">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#configuration" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="AWS ALB Ingress Controller" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                AWS ALB Ingress Controller
+              </span>
+              <span class="md-header-nav__topic">
+                Configuration
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/kubernetes-sigs/aws-alb-ingress-controller/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      kubernetes-sigs/aws-alb-ingress-controller
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Home" class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../guide/controller/setup/" title="Setup" class="md-tabs__link">
+          Setup
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../guide/walkthrough/echoserver/" title="Guide" class="md-tabs__link">
+          Guide
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../CONTRIBUTING/" title="About" class="md-tabs__link">
+          About
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="AWS ALB Ingress Controller" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    AWS ALB Ingress Controller
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/kubernetes-sigs/aws-alb-ingress-controller/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      kubernetes-sigs/aws-alb-ingress-controller
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/controller/setup/" title="Setup ALB ingress controller" class="md-nav__link">
+      Setup ALB ingress controller
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/dns/setup/" title="Setup External DNS" class="md-nav__link">
+      Setup External DNS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Walkthrough
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        Walkthrough
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/walkthrough/echoserver/" title="Echo server" class="md-nav__link">
+      Echo server
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../CONTRIBUTING/" title="Contribute" class="md-nav__link">
+      Contribute
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../BUILDING/" title="Build" class="md-nav__link">
+      Build
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ROADMAP/" title="Roadmap" class="md-nav__link">
+      Roadmap
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-api-access" title="AWS API Access" class="md-nav__link">
+    AWS API Access
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-ingress-resource-scope" title="Setting Ingress Resource Scope" class="md-nav__link">
+    Setting Ingress Resource Scope
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limiting-ingress-class" title="Limiting Ingress Class" class="md-nav__link">
+    Limiting Ingress Class
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limiting-namespaces" title="Limiting Namespaces" class="md-nav__link">
+    Limiting Namespaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limiting-external-namespaces" title="Limiting External Namespaces" class="md-nav__link">
+    Limiting External Namespaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tags" title="Tags" class="md-nav__link">
+    Tags
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/kubernetes-sigs/aws-alb-ingress-controller/edit/master/docs/api/configuration.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h1>
+<p>This document covers configuration of the ALB Ingress Controller.</p>
+<h2 id="aws-api-access">AWS API Access<a class="headerlink" href="#aws-api-access" title="Permanent link">&para;</a></h2>
+<p>To perform operations, the controller must have required IAM role capabilities for accessing and
+provisioning ALB resources. There are many ways to achieve this, such as loading <code class="codehilite">AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY</code> as environment variables or using <a href="https://github.com/jtblin/kube2iam">kube2iam</a>.</p>
+<p>A sample IAM policy, with the minimum permissions to run the controller, can be found in <a href="../../examples/iam-policy.json">examples/alb-iam-policy.json</a>.</p>
+<h2 id="setting-ingress-resource-scope">Setting Ingress Resource Scope<a class="headerlink" href="#setting-ingress-resource-scope" title="Permanent link">&para;</a></h2>
+<p>By default, all ingress resources in your cluster are seen by the controller. However, only ingress resources that contain the <a href="https://github.com/kubernetes-sigs/aws-alb-ingress-controller/blob/master/docs/ingress-resources.md#required-annotations">required annotations</a> will be satisfied by the ALB Ingress Controller.</p>
+<p>You can further limit the ingresses your controller has access to. The options available are limiting the ingress class (<code class="codehilite">ingress.class</code>) or limiting the namespace watched (<code class="codehilite">--watch-namespace=</code>). Each approach is detailed below.</p>
+<h3 id="limiting-ingress-class">Limiting Ingress Class<a class="headerlink" href="#limiting-ingress-class" title="Permanent link">&para;</a></h3>
+<p>Setting the <code class="codehilite">kubernetes.io/ingress.class</code> annotation allows for classification of ingress resources and is especially helpful when running multiple ingress controllers in the same cluster. See <a href="https://github.com/nginxinc/kubernetes-ingress/tree/master/examples/multiple-ingress-controllers#using-multiple-ingress-controllers">Using Multiple Ingress Controllers</a> for more details.</p>
+<p>An example of the container spec portion of the controller, only listening for resources with the class "alb", would be as follows.</p>
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">containers</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">args</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/server</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">--ingress-class=alb</span>
+</pre></div>
+
+<p>Now, only ingress resources with the appropriate annotation are picked up, as seen below.</p>
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
+<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingress</span>
+<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">echoserver</span>
+  <span class="l l-Scalar l-Scalar-Plain">namespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">echoserver</span>
+  <span class="l l-Scalar l-Scalar-Plain">annotations</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">alb.ingress.kubernetes.io/port</span><span class="p p-Indicator">:</span> <span class="s">&quot;8080,9000&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">kubernetes.io/ingress.class</span><span class="p p-Indicator">:</span> <span class="s">&quot;alb&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">...</span>
+</pre></div>
+
+<h3 id="limiting-namespaces">Limiting Namespaces<a class="headerlink" href="#limiting-namespaces" title="Permanent link">&para;</a></h3>
+<p>Setting the <code class="codehilite">--watch-namespace</code> argument constrains the controller's scope to a single namespace. Ingress events outside of the namespace specified are not be seen by the controller. An example of the container spec, for a controller watching only the <code class="codehilite">default</code> namespace, is as follows.</p>
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">containers</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">args</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/server</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">--watch-namespace=default</span>
+</pre></div>
+
+<blockquote>
+<p>Currently, you can set only 1 namespace to watch in this flag. See <a href="https://github.com/kubernetes/contrib/issues/847">this Kubernetes issue</a> for more details.</p>
+</blockquote>
+<h3 id="limiting-external-namespaces">Limiting External Namespaces<a class="headerlink" href="#limiting-external-namespaces" title="Permanent link">&para;</a></h3>
+<p>Setting the <code class="codehilite">--restrict-scheme</code> boolean flag to <code class="codehilite">true</code> will enable the ALB controller to check the configmap named <code class="codehilite">alb-ingress-controller-internet-facing-ingresses</code> for a list of approved ingresses before provisioning ALBs with an internet-facing scheme. Here is an example of that ConfigMap:</p>
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="l l-Scalar l-Scalar-Plain">data</span><span class="p p-Indicator">:</span>
+ <span class="l l-Scalar l-Scalar-Plain">mynamespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-ingress-name, my-ingress-name-2</span>
+ <span class="l l-Scalar l-Scalar-Plain">myothernamespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-other-ingress-name</span>
+<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">alb-ingress-controller-internet-facing-ingresses</span>
+</pre></div>
+
+<p>That ConfigMap is kept in <code class="codehilite">default</code> if unspecified, but can moved to another with the <code class="codehilite">ALB_CONTROLLER_RESTRICT_SCHEME_CONFIG_NAMESPACE</code> environment variable. This can also be passed to the command line via the <code class="codehilite">restrict-scheme-namespace</code> flag.</p>
+<h3 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h3>
+<p>Setting the <code class="codehilite">--default-tags</code> argument adds arbitrary tags to ALBs and target groups managed by the ingress controller.</p>
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">containers</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">args</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/server</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">--default-tags=mykey=myvalue,otherkey=othervalue</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.5e60981f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
