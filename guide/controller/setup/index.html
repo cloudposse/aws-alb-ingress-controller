@@ -663,7 +663,7 @@
                 
                 
                 <h1 id="setup-alb-ingress-controller">Setup ALB ingress controller<a class="headerlink" href="#setup-alb-ingress-controller" title="Permanent link">&para;</a></h1>
-<p>This document describes how to install <code class="codehilite">ALB ingress controller</code> into your kubernetes cluster on AWS.
+<p>This document describes how to install ALB ingress controller into your kubernetes cluster on AWS.
 If you'd prefer an end-to-end walkthrough of setup instead, see <a href="../../walkthrough/echoserver/">the echoservice walkthrough</a></p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>This section details what must be setup in order for the controller to run.</p>
@@ -673,40 +673,67 @@ If you'd prefer an end-to-end walkthrough of setup instead, see <a href="../../w
 <p>Adequate roles and policies must be configured in AWS and available to the node(s) running the controller. How access is granted is up to you. Some will attach the needed rights to node's role in AWS. Others will use projects like <a href="https://github.com/jtblin/kube2iam">kube2iam</a>.</p>
 <p>An example policy with the minimum rights can be found at <a href="../../../examples/iam-policy.json">iam-policy.json</a>.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p>You can choose to install <code class="codehilite">ALB ingress controller</code> via Helm or Kubectl</p>
+<p>You can choose to install ALB ingress controller via Helm or Kubectl</p>
 <h3 id="helm">Helm<a class="headerlink" href="#helm" title="Permanent link">&para;</a></h3>
-<p>Helm instructions</p>
+<ol>
+<li>
+<p>Install <a href="https://coreos.com/apps">Helm App Registry plugin</a></p>
+</li>
+<li>
+<p>Install ALB ingress controller</p>
+<div class="codehilite"><pre><span></span>helm registry install quay.io/coreos/alb-ingress-controller-helm
+</pre></div>
+
+</li>
+</ol>
 <h3 id="kubectl">Kubectl<a class="headerlink" href="#kubectl" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Configure the <code class="codehilite">ALB ingress controller</code> manifest.</p>
-<p>A sample manifest can be found below.</p>
-<div class="codehilite"><pre><span></span>$ wget https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/master/docs/examples/alb-ingress-controller.yaml
-</pre></div>
-
-<p>At minimum, edit the following variables.</p>
+<p>Download sample ALB ingress controller manifest
+    <div class="codehilite"><pre><span></span>wget https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/master/docs/examples/alb-ingress-controller.yaml
+</pre></div></p>
+</li>
+<li>
+<p>Configure the ALB ingress controller manifest</p>
+<p>At minimum, edit the following variables:</p>
 <ul>
-<li>
-<p><code class="codehilite">AWS_REGION</code>: region in AWS this cluster exists.</p>
-<div class="codehilite"><pre><span></span>```yaml
-- name: AWS_REGION
-  value: us-west-1
-```
-</pre></div>
-
-
-</li>
-<li>
-<p><code class="codehilite">CLUSTER_NAME</code>: name of the cluster. If doing auto-detection of subnets (described in prerequisites above) <code class="codehilite">CLUSTER_NAME</code> must match the AWS tags associated with the subnets you wish ALBs to be provisioned.</p>
-<div class="codehilite"><pre><span></span>```yaml
-- name: CLUSTER_NAME
-  value: devCluster
-```
-</pre></div>
-
-
-</li>
+<li><code class="codehilite">--cluster-name=devCluster</code>:  name of the cluster. AWS resources will be tagged with <code class="codehilite">kubernetes.io/cluster/devCluster:owned</code></li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">ec2metadata</a> is unavailable from the controller pod, edit the following variables:</p>
+<ul>
+<li><code class="codehilite">--aws-vpc-id=vpc-xxxxxx</code>: vpc ID of the cluster.</li>
+<li><code class="codehilite">--aws-region=us-west-1</code>: AWS region of the cluster. </li>
+</ul>
+</div>
+</li>
+<li>
+<p>Deploy the RBAC roles manifest</p>
+<div class="codehilite"><pre><span></span>kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/master/docs/examples/rbac-role.yaml
+</pre></div>
+
+</li>
+<li>
+<p>Deploy the ALB ingress controller manifest</p>
+<div class="codehilite"><pre><span></span>kubectl apply -f alb-ingress-controller.yaml
+</pre></div>
+
+</li>
+<li>
+<p>Verify the deployment was successful and the controller started</p>
+<div class="codehilite"><pre><span></span>kubectl logs -n kube-system <span class="k">$(</span>kubectl get po -n kube-system <span class="p">|</span> egrep -o alb-ingress<span class="o">[</span>a-zA-Z0-9-<span class="o">]</span>+<span class="k">)</span>
+</pre></div>
+
+<p>Should display output similar to the following.
+<div class="codehilite"><pre><span></span>W1114 20:09:02.527308       1 client_config.go:552] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+-------------------------------------------------------------------------------
+AWS ALB Ingress controller
+Release:    1.0-beta.8
+Build:      git-7bc1850b
+Repository: https://github.com/M00nF1sh/aws-alb-ingress-controller.git
+-------------------------------------------------------------------------------
+</pre></div></p>
 </li>
 </ol>
                 
