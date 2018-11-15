@@ -98,6 +98,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#ingress-annotations" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -192,18 +196,23 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
-  <li class="md-tabs__item">
-    
-      <a href="../../.." title="Home" class="md-tabs__link md-tabs__link--active">
-        Home
-      </a>
-    
-  </li>
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." title="Home" class="md-tabs__link">
+          Home
+        </a>
+      
+    </li>
+  
 
       
         
@@ -228,7 +237,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../walkthrough/echoserver/" title="Guide" class="md-tabs__link">
+        <a href="../../controller/config/" title="Guide" class="md-tabs__link">
           Guide
         </a>
       
@@ -301,10 +310,46 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../.." title="Home" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
       Home
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Welcome" class="md-nav__link">
+      Welcome
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../controller/how-it-works/" title="How it works" class="md-nav__link">
+      How it works
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -345,7 +390,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dns/setup/" title="Setup External DNS" class="md-nav__link">
+    <a href="../../external-dns/setup/" title="Setup External DNS" class="md-nav__link">
       Setup External DNS
     </a>
   </li>
@@ -360,10 +405,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Guide
@@ -385,10 +432,134 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
     
     <label class="md-nav__link" for="nav-3-1">
-      Walkthrough
+      Controller
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-3-1">
+        Controller
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../controller/config/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Ingress
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Ingress
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Annotation
+      </label>
+    
+    <a href="./" title="Annotation" class="md-nav__link md-nav__link--active">
+      Annotation
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#health-check" title="Health Check" class="md-nav__link">
+    Health Check
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../spec/" title="Spec" class="md-nav__link">
+      Spec
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Walkthrough
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
         Walkthrough
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -441,8 +612,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../CONTRIBUTING/" title="Contribute" class="md-nav__link">
-      Contribute
+    <a href="../../../CONTRIBUTING/" title="Contributing" class="md-nav__link">
+      Contributing
     </a>
   </li>
 
@@ -453,8 +624,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../BUILDING/" title="Build" class="md-nav__link">
-      Build
+    <a href="../../../BUILDING/" title="Building" class="md-nav__link">
+      Building
     </a>
   </li>
 
@@ -483,6 +654,37 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#health-check" title="Health Check" class="md-nav__link">
+    Health Check
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -491,9 +693,133 @@
                   <a href="https://github.com/kubernetes-sigs/aws-alb-ingress-controller/edit/master/docs/guide/ingress/annotation.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Annotation</h1>
-                
-                
+                <h1 id="ingress-annotations">Ingress annotations<a class="headerlink" href="#ingress-annotations" title="Permanent link">&para;</a></h1>
+<p>You can add kubernetes annotations to ingress and service objects to customize their behavior.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>Annotations applied to service have higher priority over annotations applied to ingress. <code class="codehilite">Location</code> column below indicates where that annotation can be applied to.</li>
+<li>Annotation keys and values can only be strings.</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The annotation prefix can be changed using the <code class="codehilite">--annotations-prefix</code> command line argument, by default it's <code class="codehilite">alb.ingress.kubernetes.io</code>, as described in the table below.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#health-check">alb.ingress.kubernetes.io/healthcheck-interval-seconds</a></td>
+<td>integer</td>
+<td>15</td>
+<td>Ingress, Service</td>
+</tr>
+<tr>
+<td><a href="#health-check">alb.ingress.kubernetes.io/healthcheck-path</a></td>
+<td>string</td>
+<td>/</td>
+<td>Ingress, Service</td>
+</tr>
+<tr>
+<td><a href="#health-check">alb.ingress.kubernetes.io/healthcheck-port</a></td>
+<td>integer|traffic-port</td>
+<td>traffic-port</td>
+<td>Ingress, Service</td>
+</tr>
+<tr>
+<td><a href="#health-check">alb.ingress.kubernetes.io/healthcheck-protocol</a></td>
+<td>HTTP|HTTPS</td>
+<td>HTTP</td>
+<td>Ingress, Service</td>
+</tr>
+<tr>
+<td><a href="#health-check">alb.ingress.kubernetes.io/healthcheck-timeout-seconds</a></td>
+<td>integer</td>
+<td>5</td>
+<td>Ingress, Service</td>
+</tr>
+<tr>
+<td><a href="#health-check">alb.ingress.kubernetes.io/healthy-threshold-count</a></td>
+<td>integer</td>
+<td>2</td>
+<td>Ingress, Service</td>
+</tr>
+<tr>
+<td><a href="#health-check">alb.ingress.kubernetes.io/unhealthy-threshold-count</a></td>
+<td>integer</td>
+<td>2</td>
+<td>Ingress, Service</td>
+</tr>
+</tbody>
+</table>
+<h2 id="health-check">Health Check<a class="headerlink" href="#health-check" title="Permanent link">&para;</a></h2>
+<p>Health check on target groups can be controlled with following annotations:</p>
+<ul>
+<li>
+<p><code class="codehilite">alb.ingress.kubernetes.io/healthcheck-protocol</code> controls the protocol used when performing health check on targets.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code class="codehilite">alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS</code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>default protocol can be set via --backend-protocol` flag</p>
+</div>
+</li>
+<li>
+<p><code class="codehilite">alb.ingress.kubernetes.io/healthcheck-port</code> controls the port used when performing health check on targets.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<ul>
+<li><code class="codehilite">alb.ingress.kubernetes.io/healthcheck-port: traffic-port</code></li>
+<li><code class="codehilite">alb.ingress.kubernetes.io/healthcheck-port: 80</code></li>
+</ul>
+</div>
+</li>
+<li>
+<p><code class="codehilite">alb.ingress.kubernetes.io/healthcheck-path</code> controls the HTTP path when peforming health check on targets.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code class="codehilite">alb.ingress.kubernetes.io/healthcheck-path: /ping</code></p>
+</div>
+</li>
+<li>
+<p><code class="codehilite">alb.ingress.kubernetes.io/healthcheck-interval-seconds</code> controls the interval(in seconds) between health check of an individual target.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code class="codehilite">alb.ingress.kubernetes.io/healthcheck-interval-seconds: 10</code></p>
+</div>
+</li>
+<li>
+<p><code class="codehilite">alb.ingress.kubernetes.io/healthcheck-timeout-seconds</code> controls the timeout(in seconds) during which no response from a target means a failed health check</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code class="codehilite">alb.ingress.kubernetes.io/healthcheck-timeout-seconds: 8</code></p>
+</div>
+</li>
+<li>
+<p><code class="codehilite">alb.ingress.kubernetes.io/healthy-threshold-count</code> controls the consecutive health checks successes required before considering an unhealthy target healthy.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code class="codehilite">alb.ingress.kubernetes.io/healthy-threshold-count: 2</code></p>
+</div>
+</li>
+<li>
+<p><code class="codehilite">alb.ingress.kubernetes.io/unhealthy-threshold-count</code> controls the consecutive health check failures required before considering a target unhealthy.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code class="codehilite">alb.ingress.kubernetes.io/unhealthy-threshold-count: 2</code></p>
+</div>
+</li>
+</ul>
                 
                   
                 
@@ -510,6 +836,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../controller/config/" title="Configuration" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Configuration
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../spec/" title="Spec" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Spec
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

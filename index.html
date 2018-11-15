@@ -36,7 +36,7 @@
     
     
       
-        <title>AWS ALB Ingress Controller</title>
+        <title>Welcome - AWS ALB Ingress Controller</title>
       
     
     
@@ -98,7 +98,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#welcome-to-mkdocs" tabindex="1" class="md-skip">
+      <a href="#aws-alb-ingress-controller" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -124,7 +124,7 @@
                 AWS ALB Ingress Controller
               </span>
               <span class="md-header-nav__topic">
-                Home
+                Welcome
               </span>
             
           
@@ -196,18 +196,23 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
-  <li class="md-tabs__item">
-    
-      <a href="." title="Home" class="md-tabs__link md-tabs__link--active">
-        Home
-      </a>
-    
-  </li>
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="." title="Home" class="md-tabs__link md-tabs__link--active">
+          Home
+        </a>
+      
+    </li>
+  
 
       
         
@@ -232,7 +237,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="guide/walkthrough/echoserver/" title="Guide" class="md-tabs__link">
+        <a href="guide/controller/config/" title="Guide" class="md-tabs__link">
           Guide
         </a>
       
@@ -307,6 +312,27 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -315,11 +341,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Home
+        Welcome
       </label>
     
-    <a href="." title="Home" class="md-nav__link md-nav__link--active">
-      Home
+    <a href="." title="Welcome" class="md-nav__link md-nav__link--active">
+      Welcome
     </a>
     
       
@@ -333,15 +359,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" title="Commands" class="md-nav__link">
-    Commands
+  <a href="#getting-started" title="Getting started" class="md-nav__link">
+    Getting started
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" title="Project layout" class="md-nav__link">
-    Project layout
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building" title="Building" class="md-nav__link">
+    Building
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" title="License" class="md-nav__link">
+    License
   </a>
   
 </li>
@@ -354,6 +394,23 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guide/controller/how-it-works/" title="How it works" class="md-nav__link">
+      How it works
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -394,7 +451,7 @@
 
 
   <li class="md-nav__item">
-    <a href="guide/dns/setup/" title="Setup External DNS" class="md-nav__link">
+    <a href="guide/external-dns/setup/" title="Setup External DNS" class="md-nav__link">
       Setup External DNS
     </a>
   </li>
@@ -434,10 +491,94 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
     
     <label class="md-nav__link" for="nav-3-1">
-      Walkthrough
+      Controller
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-3-1">
+        Controller
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guide/controller/config/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Ingress
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Ingress
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guide/ingress/annotation/" title="Annotation" class="md-nav__link">
+      Annotation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guide/ingress/spec/" title="Spec" class="md-nav__link">
+      Spec
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Walkthrough
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
         Walkthrough
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -490,8 +631,8 @@
 
 
   <li class="md-nav__item">
-    <a href="CONTRIBUTING/" title="Contribute" class="md-nav__link">
-      Contribute
+    <a href="CONTRIBUTING/" title="Contributing" class="md-nav__link">
+      Contributing
     </a>
   </li>
 
@@ -502,8 +643,8 @@
 
 
   <li class="md-nav__item">
-    <a href="BUILDING/" title="Build" class="md-nav__link">
-      Build
+    <a href="BUILDING/" title="Building" class="md-nav__link">
+      Building
     </a>
   </li>
 
@@ -546,15 +687,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" title="Commands" class="md-nav__link">
-    Commands
+  <a href="#getting-started" title="Getting started" class="md-nav__link">
+    Getting started
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" title="Project layout" class="md-nav__link">
-    Project layout
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building" title="Building" class="md-nav__link">
+    Building
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" title="License" class="md-nav__link">
+    License
   </a>
   
 </li>
@@ -578,21 +733,26 @@
                   <a href="https://github.com/kubernetes-sigs/aws-alb-ingress-controller/edit/master/docs/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs<a class="headerlink" href="#welcome-to-mkdocs" title="Permanent link">&para;</a></h1>
-<p>For full documentation visit <a href="https://mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+                <p><a href="https://coveralls.io/github/kubernetes-sigs/aws-alb-ingress-controller?branch=master"><img alt="Coverage Status" src="https://coveralls.io/repos/github/kubernetes-sigs/aws-alb-ingress-controller/badge.svg?branch=master" /></a>
+<a href="https://goreportcard.com/report/github.com/kubernetes-sigs/aws-alb-ingress-controller"><img alt="Go Report Card" src="https://goreportcard.com/badge/github.com/kubernetes-sigs/aws-alb-ingress-controller" /></a>
+<a href="https://travis-ci.org/kubernetes-sigs/aws-alb-ingress-controller"><img alt="Build Status" src="https://travis-ci.org/kubernetes-sigs/aws-alb-ingress-controller.svg?branch=master" /></a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fcoreos%2Falb-ingress-controller?ref=badge_shield"><img alt="FOSSA Status" src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcoreos%2Falb-ingress-controller.svg?type=shield" /></a></p>
+<h1 id="aws-alb-ingress-controller">AWS ALB Ingress Controller<a class="headerlink" href="#aws-alb-ingress-controller" title="Permanent link">&para;</a></h1>
+<p><strong>NOTE:</strong> This controller is in beta state as we attempt to move to our first 1.0 release. The current image version is <code class="codehilite">1.0-beta.7</code>. Please file any issues you find and note the version used.</p>
+<p>The AWS ALB Ingress Controller satisfies Kubernetes <a href="https://kubernetes.io/docs/user-guide/ingress">ingress resources</a> by provisioning <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html">Application Load Balancers</a>.</p>
+<p>This project was originated by <a href="https://github.com/ticketmaster">Ticketmaster</a> and <a href="https://github.com/coreos">CoreOS</a> as part of Ticketmaster's move to AWS and CoreOS Tectonic. Learn more about Ticketmaster's Kubernetes initiative from Justin Dean's video at <a href="https://www.youtube.com/watch?v=wqXVKneP0Hg">Tectonic Summit</a>.</p>
+<p>This project was donated to Kubernetes SIG-AWS to allow AWS, CoreOS, Ticketmaster and other SIG-AWS contributors to officially maintain the project. SIG-AWS reached this consensus on June 1, 2018.</p>
+<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<p>To get started with the controller, see our <a href="guide/walkthrough/echoserver/">walkthrough for echoserver</a>.</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code class="codehilite">mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code class="codehilite">mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code class="codehilite">mkdocs build</code> - Build the documentation site.</li>
-<li><code class="codehilite">mkdocs help</code> - Print this help message.</li>
+<li>See <a href="guide/controller/setup/">controller setup</a> on how to install ALB ingress controller</li>
+<li>See <a href="guide/external-dns/setup/">external-dns setup</a> for how to setup the external-dns to manage route 53 records.</li>
 </ul>
-<h2 id="project-layout">Project layout<a class="headerlink" href="#project-layout" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</pre></div>
+<h2 id="building">Building<a class="headerlink" href="#building" title="Permanent link">&para;</a></h2>
+<p>For details on building this project, see <a href="BUILDING/">BUILDING.md</a>.</p>
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p><a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fcoreos%2Falb-ingress-controller?ref=badge_large"><img alt="FOSSA Status" src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcoreos%2Falb-ingress-controller.svg?type=large" /></a></p>
                 
                   
                 
@@ -614,13 +774,13 @@ docs/
       <nav class="md-footer-nav__inner md-grid">
         
         
-          <a href="guide/controller/setup/" title="Setup ALB ingress controller" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="guide/controller/how-it-works/" title="How it works" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Setup ALB ingress controller
+                How it works
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

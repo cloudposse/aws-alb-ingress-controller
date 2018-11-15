@@ -36,7 +36,7 @@
     
     
       
-        <title>Config - AWS ALB Ingress Controller</title>
+        <title>Configuration - AWS ALB Ingress Controller</title>
       
     
     
@@ -120,7 +120,7 @@
                 AWS ALB Ingress Controller
               </span>
               <span class="md-header-nav__topic">
-                Config
+                Configuration
               </span>
             
           
@@ -192,18 +192,23 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
-  <li class="md-tabs__item">
-    
-      <a href="../../.." title="Home" class="md-tabs__link md-tabs__link--active">
-        Home
-      </a>
-    
-  </li>
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." title="Home" class="md-tabs__link">
+          Home
+        </a>
+      
+    </li>
+  
 
       
         
@@ -228,7 +233,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../walkthrough/echoserver/" title="Guide" class="md-tabs__link">
+        <a href="./" title="Guide" class="md-tabs__link md-tabs__link--active">
           Guide
         </a>
       
@@ -301,10 +306,46 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../.." title="Home" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
       Home
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Welcome" class="md-nav__link">
+      Welcome
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../how-it-works/" title="How it works" class="md-nav__link">
+      How it works
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -345,7 +386,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dns/setup/" title="Setup External DNS" class="md-nav__link">
+    <a href="../../external-dns/setup/" title="Setup External DNS" class="md-nav__link">
       Setup External DNS
     </a>
   </li>
@@ -360,10 +401,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Guide
@@ -379,16 +422,109 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
     
     <label class="md-nav__link" for="nav-3-1">
-      Walkthrough
+      Controller
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-3-1">
+        Controller
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="Configuration" class="md-nav__link md-nav__link--active">
+      Configuration
+    </a>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Ingress
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Ingress
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ingress/annotation/" title="Annotation" class="md-nav__link">
+      Annotation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ingress/spec/" title="Spec" class="md-nav__link">
+      Spec
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Walkthrough
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
         Walkthrough
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -441,8 +577,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../CONTRIBUTING/" title="Contribute" class="md-nav__link">
-      Contribute
+    <a href="../../../CONTRIBUTING/" title="Contributing" class="md-nav__link">
+      Contributing
     </a>
   </li>
 
@@ -453,8 +589,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../BUILDING/" title="Build" class="md-nav__link">
-      Build
+    <a href="../../../BUILDING/" title="Building" class="md-nav__link">
+      Building
     </a>
   </li>
 
@@ -491,7 +627,7 @@
                   <a href="https://github.com/kubernetes-sigs/aws-alb-ingress-controller/edit/master/docs/guide/controller/config.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Config</h1>
+                  <h1>Configuration</h1>
                 
                 
                 
@@ -510,6 +646,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../external-dns/setup/" title="Setup External DNS" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Setup External DNS
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../ingress/annotation/" title="Annotation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Annotation
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
