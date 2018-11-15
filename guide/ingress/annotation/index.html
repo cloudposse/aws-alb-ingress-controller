@@ -512,6 +512,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#access-control" title="Access control" class="md-nav__link">
+    Access control
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#health-check" title="Health Check" class="md-nav__link">
     Health Check
   </a>
@@ -668,6 +675,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#access-control" title="Access control" class="md-nav__link">
+    Access control
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#health-check" title="Health Check" class="md-nav__link">
     Health Check
   </a>
@@ -720,46 +734,81 @@
 <td><a href="#health-check">alb.ingress.kubernetes.io/healthcheck-interval-seconds</a></td>
 <td>integer</td>
 <td>15</td>
-<td>Ingress, Service</td>
+<td>ingress,service</td>
 </tr>
 <tr>
 <td><a href="#health-check">alb.ingress.kubernetes.io/healthcheck-path</a></td>
 <td>string</td>
 <td>/</td>
-<td>Ingress, Service</td>
+<td>ingress,service</td>
 </tr>
 <tr>
 <td><a href="#health-check">alb.ingress.kubernetes.io/healthcheck-port</a></td>
 <td>integer|traffic-port</td>
 <td>traffic-port</td>
-<td>Ingress, Service</td>
+<td>ingress,service</td>
 </tr>
 <tr>
 <td><a href="#health-check">alb.ingress.kubernetes.io/healthcheck-protocol</a></td>
 <td>HTTP|HTTPS</td>
 <td>HTTP</td>
-<td>Ingress, Service</td>
+<td>ingress,service</td>
 </tr>
 <tr>
 <td><a href="#health-check">alb.ingress.kubernetes.io/healthcheck-timeout-seconds</a></td>
 <td>integer</td>
 <td>5</td>
-<td>Ingress, Service</td>
+<td>ingress,service</td>
 </tr>
 <tr>
 <td><a href="#health-check">alb.ingress.kubernetes.io/healthy-threshold-count</a></td>
 <td>integer</td>
 <td>2</td>
-<td>Ingress, Service</td>
+<td>ingress,service</td>
+</tr>
+<tr>
+<td><a href="#access-control">alb.ingress.kubernetes.io/inbound-cidrs</a></td>
+<td>comma-separated-string</td>
+<td>0.0.0.0/0</td>
+<td>ingress</td>
 </tr>
 <tr>
 <td><a href="#health-check">alb.ingress.kubernetes.io/unhealthy-threshold-count</a></td>
 <td>integer</td>
 <td>2</td>
-<td>Ingress, Service</td>
+<td>ingress,service</td>
 </tr>
 </tbody>
 </table>
+<h2 id="access-control">Access control<a class="headerlink" href="#access-control" title="Permanent link">&para;</a></h2>
+<p>Access control for LoadBalancer can be controlled with following annotations:</p>
+<ul>
+<li>
+<p><code class="codehilite">alb.ingress.kubernetes.io/inbound-cidrs</code> controls the CIDRs that are allowed to access LoadBalancer.</p>
+<div class="admonition warning">
+<p>this annotation will be ignored if <code class="codehilite">alb.ingress.kubernetes.io/security-groups</code> is specified.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code class="codehilite">alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS</code></p>
+</div>
+</li>
+<li>
+<p><code class="codehilite">alb.ingress.kubernetes.io/security-groups</code> specifies the securityGroups you want to attach to LoadBalancer.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>if this annotation is specified, you should also manage securityGroup on nodes to allow inbound traffic from LoadBalancer.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>both name or ID of securityGroups are supported.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code class="codehilite">alb.ingress.kubernetes.io/security-groups: sg-xxxx, nameOfSg1, nameOfSg2</code></p>
+</div>
+</li>
+</ul>
 <h2 id="health-check">Health Check<a class="headerlink" href="#health-check" title="Permanent link">&para;</a></h2>
 <p>Health check on target groups can be controlled with following annotations:</p>
 <ul>
