@@ -711,27 +711,11 @@
 <h2 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h2>
 <p>The ALB Ingress Controller is configured by Annotations on the <code class="codehilite">Ingress</code> and <code class="codehilite">Service</code> resource objects.</p>
 <div class="codehilite"><pre><span></span>alb.ingress.kubernetes.io/load-balancer-attributes
-alb.ingress.kubernetes.io/backend-protocol
-alb.ingress.kubernetes.io/certificate-arn
-alb.ingress.kubernetes.io/healthcheck-interval-seconds
-alb.ingress.kubernetes.io/healthcheck-path
-alb.ingress.kubernetes.io/healthcheck-port
-alb.ingress.kubernetes.io/healthcheck-protocol
-alb.ingress.kubernetes.io/healthcheck-timeout-seconds
-alb.ingress.kubernetes.io/healthy-threshold-count
-alb.ingress.kubernetes.io/unhealthy-threshold-count
-alb.ingress.kubernetes.io/listen-ports
-alb.ingress.kubernetes.io/inbound-cidrs
-alb.ingress.kubernetes.io/target-type
-alb.ingress.kubernetes.io/scheme
-alb.ingress.kubernetes.io/security-groups
-alb.ingress.kubernetes.io/subnets
-alb.ingress.kubernetes.io/success-codes
-alb.ingress.kubernetes.io/tags
-alb.ingress.kubernetes.io/target-group-attributes
-alb.ingress.kubernetes.io/ip-address-type
-alb.ingress.kubernetes.io/ssl-policy
 alb.ingress.kubernetes.io/actions.&lt;ACTION NAME&gt;
+
+
+
+alb.ingress.kubernetes.io/target-group-attributes
 </pre></div>
 
 <ul>
@@ -742,43 +726,13 @@ alb.ingress.kubernetes.io/actions.&lt;ACTION NAME&gt;
 <p><strong>backend-protocol</strong>: Enables selection of protocol for ALB to use to connect to backend service. When omitted, <code class="codehilite">HTTP</code> is used.</p>
 </li>
 <li>
-<p><strong>certificate-arn</strong>: Enables HTTPS and uses the certificate defined, based on arn, stored in your <a href="https://aws.amazon.com/certificate-manager">AWS Certificate Manager</a>.</p>
-</li>
-<li>
-<p><strong>healthcheck-interval-seconds</strong>: The approximate amount of time, in seconds, between health checks of an individual target. The default is 15 seconds.</p>
-</li>
-<li>
-<p><strong>healthcheck-path</strong>: The ping path that is the destination on the targets for health checks. The default is /.</p>
-</li>
-<li>
-<p><strong>healthcheck-port</strong>: The port the load balancer uses when performing health checks on targets. The default is traffic-port, which indicates the port on which each target receives traffic from the load balancer.</p>
-</li>
-<li>
-<p><strong>healthcheck-protocol</strong>: The protocol the load balancer uses when performing health checks on targets. The default is the HTTP protocol.</p>
-</li>
-<li>
-<p><strong>healthcheck-timeout-seconds</strong>: The amount of time, in seconds, during which no response from a target means a failed health check. The default is 5 seconds.</p>
-</li>
-<li>
-<p><strong>healthcheck-healthy-threshold-count</strong>: The number of consecutive health checks successes required before considering an unhealthy target healthy. The default is 2.</p>
-</li>
-<li>
-<p><strong>healthcheck-unhealthy-threshold-count</strong>: The number of consecutive health check failures required before considering a target unhealthy. The default is 2.</p>
-</li>
-<li>
 <p><strong>listen-ports</strong>: Defines the ports the ALB will expose. It defaults to <code class="codehilite">[{&quot;HTTP&quot;: 80}]</code> unless a certificate ARN is defined, then it is <code class="codehilite">[{&quot;HTTPS&quot;: 443}]</code>. Uses a format as follows '[{"HTTP":8080,"HTTPS": 443}]'.</p>
-</li>
-<li>
-<p><strong>inbound-cidrs</strong>: Defines the CIDR whitelist for ingress traffic to ALB. It defaults to <code class="codehilite">0.0.0.0/0</code>.(Will be ignored if <strong>security-groups</strong> is specified)</p>
 </li>
 <li>
 <p><strong>target-type</strong>: Defines if the EC2 instance ID or the pod IP are used in the managed Target Groups. Defaults to <code class="codehilite">instance</code>. Valid options are <code class="codehilite">instance</code> and <code class="codehilite">ip</code>. With <code class="codehilite">instance</code> the Target Group targets are <code class="codehilite">&lt;ec2 instance id&gt;:&lt;node port&gt;</code>, for <code class="codehilite">ip</code> the targets are <code class="codehilite">&lt;pod ip&gt;:&lt;pod port&gt;</code>. <code class="codehilite">ip</code> is to be used when the pod network is routable and can be reached by the ALB.</p>
 </li>
 <li>
 <p><strong>scheme</strong>: Defines whether an ALB should be <code class="codehilite">internal</code> or <code class="codehilite">internet-facing</code>. See <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme">Load balancer scheme</a> in the AWS documentation for more details.</p>
-</li>
-<li>
-<p><strong>security-groups</strong>: <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security groups</a> that should be applied to the ALB instance. These can be referenced by security group IDs or the name tag associated with each security group. Example ID values are <code class="codehilite">sg-723a380a,sg-a6181ede,sg-a5181edd</code>. Example tag values are <code class="codehilite">appSG, webSG</code>. When the annotation is not present, the controller will create a security group with appropriate ports allowing access to <code class="codehilite">0.0.0.0/0</code> and attached to the ALB. It will also create a security group for instances that allows all TCP traffic when the source is the security group created for the ALB.</p>
 </li>
 <li>
 <p><strong>subnets</strong>: The subnets where the ALB instance should be deployed. Must include 2 subnets, each in a different <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">availability zone</a>. These can be referenced by subnet IDs or the name tag associated with the subnet. Example values for subnet IDs are <code class="codehilite">subnet-a4f0098e,subnet-457ed533,subnet-95c904cd</code>. Example values for name tags are: <code class="codehilite">webSubnet,appSubnet</code>. If subnets are not specified the ALB controller will attempt to detect qualified subnets. This qualification is done by locating subnets that match the following criteria.</p>
@@ -796,19 +750,10 @@ alb.ingress.kubernetes.io/actions.&lt;ACTION NAME&gt;
 <p>After subnets matching the above 2 tags have been located, they are checked to ensure 2 or more are in unique AZs, otherwise the ALB will not be created. If 2 subnets share the same AZ, only 1 of the 2 is used.</p>
 </li>
 <li>
-<p><strong>success-codes</strong>: Defines the HTTP status code that should be expected when doing health checks against the defined <code class="codehilite">healthcheck-path</code>. When omitted, <code class="codehilite">200</code> is used.</p>
-</li>
-<li>
-<p><strong>tags</strong>: Defines <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">AWS Tags</a> that should be applied to ALB instance, Target groups and SecurityGroups.</p>
-</li>
-<li>
 <p><strong>target-group-attributes</strong>: Defines <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes">Target Group Attributes</a> which can be assigned to the Target Groups. Currently these are applied equally to all target groups in the ingress.</p>
 </li>
 <li>
 <p><strong>ip-address-type</strong>: The IP address type thats used to either route IPv4 traffic only or to route both IPv4 and IPv6 traffic. Can be either <code class="codehilite">dualstack</code> or <code class="codehilite">ipv4</code>. When omitted <code class="codehilite">ipv4</code> is used.</p>
-</li>
-<li>
-<p><strong>ssl-policy</strong>: Defines the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security Policy</a> that should be assigned to the ALB, allowing you to control the protocol and ciphers.</p>
 </li>
 <li>
 <p><strong>alb.ingress.kubernetes.io/actions.\<ACTION NAME></strong>: Provides a method for configuring custom actions on a listener, such as for <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#redirect-actions">Redirect Actions</a>. The <code class="codehilite">&lt;ACTION NAME&gt;</code> in the annotation must match the <code class="codehilite">serviceName</code> in the ingress rules. The value of the annotation is the JSON spec of the action. See the <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/elbv2/#Action">Action type</a> for documentation on what should be in the JSON. <em>NOTE</em> you must set the <code class="codehilite">servicePort</code> to <code class="codehilite">use-annotation</code>.</p>
