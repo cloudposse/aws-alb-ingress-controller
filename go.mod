@@ -11,6 +11,7 @@ require (
 	github.com/gogo/protobuf v1.1.1 // indirect
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/groupcache v0.0.0-20180513044358-24b0969c4cb7 // indirect
+	github.com/golangci/golangci-lint v1.12.3 // indirect
 	github.com/google/btree v0.0.0-20180124185431-e89373fe6b4a // indirect
 	github.com/google/gofuzz v0.0.0-20170612174753-24818f796faf // indirect
 	github.com/googleapis/gnostic v0.2.0 // indirect
@@ -24,7 +25,6 @@ require (
 	github.com/mattbaird/jsonpatch v0.0.0-20171005235357-81af80346b1a // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742 // indirect
-	github.com/onsi/gomega v1.4.2 // indirect
 	github.com/pborman/uuid v1.2.0 // indirect
 	github.com/peterbourgon/diskv v2.0.1+incompatible // indirect
 	github.com/pkg/errors v0.8.0
@@ -42,17 +42,17 @@ require (
 	go.uber.org/zap v1.9.1 // indirect
 	golang.org/x/crypto v0.0.0-20180723164146-c126467f60eb // indirect
 	golang.org/x/net v0.0.0-20181011144130-49bb7cea24b1 // indirect
+	golang.org/x/oauth2 v0.0.0-20181203162652-d668ce993890 // indirect
 	golang.org/x/sys v0.0.0-20181011152604-fa43e7bc11ba // indirect
 	golang.org/x/time v0.0.0-20180412165947-fbb02b2291d2 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/ini.v1 v1.38.3 // indirect
 	gopkg.in/karlseguin/expect.v1 v1.0.1 // indirect
-	k8s.io/api v0.0.0-20180628040859-072894a440bd
-	k8s.io/apiextensions-apiserver v0.0.0-20181018015743-2867844605ff // indirect
-	k8s.io/apimachinery v0.0.0-20180621070125-103fd098999d
-	k8s.io/apiserver v0.0.0-20181009085301-f2a92f83c30c
-	k8s.io/client-go v8.0.0+incompatible
+	k8s.io/api v0.0.0-20181126151915-b503174bad59
+	k8s.io/apimachinery v0.0.0-20181126123746-eddba98df674
+	k8s.io/apiserver v0.0.0-20181126153457-92fdef3a232a
+	k8s.io/client-go v2.0.0-alpha.0.0.20181126152608-d082d5923d3c+incompatible
 	k8s.io/kube-openapi v0.0.0-20180719232738-d8ea2fe547a4 // indirect
-	sigs.k8s.io/controller-runtime v0.1.4
+	sigs.k8s.io/controller-runtime v0.1.8
 	sigs.k8s.io/testing_frameworks v0.1.0 // indirect
 )
