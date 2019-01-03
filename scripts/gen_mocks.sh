@@ -5,7 +5,7 @@ mockery -name Storer -dir ./internal/ingress/controller/store/ -inpkg
 
 mockery -name Controller -dir ./internal/alb/tags/ -inpkg
 mockery -name Controller -dir ./internal/alb/ls/ -inpkg
-mockery -name Controller -dir ./internal/alb/rs/ -inpkg
+mockery -name RulesController -dir ./internal/alb/ls/ -inpkg
 
 mockery -name ACMAPI -dir ./vendor/github.com/aws/aws-sdk-go/service/acm/acmiface
 mockery -name EC2API -dir ./vendor/github.com/aws/aws-sdk-go/service/ec2/ec2iface

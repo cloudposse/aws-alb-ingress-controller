@@ -7,13 +7,11 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/elbv2"
-	"github.com/kubernetes-sigs/aws-alb-ingress-controller/internal/alb/rs"
 	"github.com/kubernetes-sigs/aws-alb-ingress-controller/internal/alb/tg"
 	"github.com/kubernetes-sigs/aws-alb-ingress-controller/internal/ingress/annotations"
 	"github.com/kubernetes-sigs/aws-alb-ingress-controller/internal/ingress/annotations/action"
 	"github.com/kubernetes-sigs/aws-alb-ingress-controller/internal/ingress/annotations/listener"
 	"github.com/kubernetes-sigs/aws-alb-ingress-controller/internal/ingress/annotations/loadbalancer"
-	"github.com/kubernetes-sigs/aws-alb-ingress-controller/internal/ingress/controller/store"
 	"github.com/kubernetes-sigs/aws-alb-ingress-controller/mocks"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
@@ -640,15 +638,13 @@ func TestDefaultController_Reconcile(t *testing.T) {
 					}, tc.ModifyListenerCall.Err)
 			}
 
-			mockStore := &store.MockStorer{}
-			mockRulesController := &rs.MockController{}
+			mockRulesController := &MockRulesController{}
 			if tc.RulesReconcileCall != nil {
 				mockRulesController.On("Reconcile", mock.Anything, tc.RulesReconcileCall.Instance, &tc.Ingress, &tc.IngressAnnos, tc.TGGroup).Return(tc.RulesReconcileCall.Err)
 			}
 
 			controller := &defaultController{
 				cloud:           cloud,
-				store:           mockStore,
 				rulesController: mockRulesController,
 			}
 			err := controller.Reconcile(ctx, ReconcileOptions{
@@ -661,7 +657,6 @@ func TestDefaultController_Reconcile(t *testing.T) {
 			})
 			assert.Equal(t, tc.ExpectedError, err)
 			cloud.AssertExpectations(t)
-			mockStore.AssertExpectations(t)
 			mockRulesController.AssertExpectations(t)
 		})
 	}
